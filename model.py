@@ -21,7 +21,6 @@ class DetectionModel(nn.Module):
             nn.Conv2d(512, 4 * num_box, kernel_size=1, stride=1, padding=0, bias=True),
             nn.Sigmoid(),
         )
-        # We output the logits for all the classes. There is no "no-object class"
 
         self.head_class = nn.Sequential(
             nn.Conv2d(
