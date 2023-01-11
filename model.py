@@ -1,5 +1,5 @@
 import torch
-import torch.torchvision
+import torch.torchvision as torchvision
 import torch.nn as nn
 
 
@@ -7,9 +7,6 @@ class DetectionModel(nn.Module):
     def __init__(self, num_channels: int, num_classes: int, num_box: int):
         super(DetectionModel, self).__init__()
 
-        # We output four numbers. The semantics of these numbers
-        # depend on the training set where we order the cy, cy, width, height
-        # see data.py : targets_to_tensor
         self.head_bbox = nn.Sequential(
             nn.Conv2d(
                 num_channels, 1024, kernel_size=1, stride=1, padding=0, bias=False
@@ -58,7 +55,7 @@ class DetectionModel(nn.Module):
 
 # extract features of the resnet
 class FeatureExtractor(nn.Module):
-    def __init__(self, model_name: str):
+    def __init__(self):
         super(FeatureExtractor, self).__init__()
         model = torchvision.models.resnet18(pretrained=True)
 

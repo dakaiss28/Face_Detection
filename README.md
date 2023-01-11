@@ -10,6 +10,7 @@ To build the system, 2 approaches are considerated here :
 - via transfer learning
 - via fully training a neural network
 
+The project is developped with Pytorch.
 ## Dataset 
 We use the WIDERFace dataset, released in 2016. 
 The dataset contains 32,203 images and labels 393,703 faces. 
